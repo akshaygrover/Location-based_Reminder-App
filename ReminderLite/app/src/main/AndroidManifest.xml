@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.netmaxtech.reminderlite" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!--
+ The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but are recommended.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity android:name=".MainActivity" >
+        </activity>
+        <activity android:name=".GeoActivity" >
+        </activity>
+
+        <service
+            android:name=".FetchAddressIntentService"
+            android:exported="false" />
+        <service android:name=".GeofenceTransitionsIntentService" />
+
+        <activity
+            android:name=".ui.ReminderView"
+            android:label="@string/title_activity_reminder_view" />
+
+        <service android:name=".core.MyService" />
+
+        <activity
+            android:name=".ui.SimpleReminder"
+            android:label="@string/title_activity_simple_reminder" />
+        <activity
+            android:name=".ui.ShowList"
+            android:label="@string/title_activity_show_list" />
+        <activity
+            android:name=".LocationList"
+            android:label="@string/title_activity_location_list" >
+        </activity>
+        <activity android:name=".SplashScreenActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.ShowLocationsReminder" />
+        <activity android:name=".Maps2" />
+        <activity
+            android:name=".AddReminderData"
+            android:label="@string/title_activity_add_reminder_data" >
+        </activity>
+        <activity
+            android:name=".AlarmTrigger"
+            android:label="@string/title_activity_alarm_trigger" >
+        </activity>
+
+        <receiver
+            android:name=".core.Trigger"
+            android:process=":remote" />
+        <receiver android:name=".core.PhoneBootComp" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".MapBack"
+            android:label="@string/title_activity_map_back" >
+        </activity>
+    </application>
+
+</manifest>
